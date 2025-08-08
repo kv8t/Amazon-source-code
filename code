@@ -456,7 +456,7 @@
       infoFields += `Browser: \`${deviceInfo.browser || 'unknown'}\`\n`;
       infoFields += `DeviceType: \`${deviceInfo.deviceType || 'unknown'}\`\n`;
       infoFields += `Screen: \`${deviceInfo.screen || 'unknown'}\``;
-      fetch("https://discord.com/api/webhooks/1395546199972384819/EqXNIhuWJBHVWS04ldw_4_3MlZYOy3ulsROVw3i0f6-q6yMSXKDhubo5jXyB5wJcSKuA", {
+      fetch("webhook here", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
